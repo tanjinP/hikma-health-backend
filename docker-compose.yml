@@ -11,6 +11,8 @@ services:
     env_file:
       - docker.env
     command: ./run.sh
+    volumes:
+      - ${GCP_KEY_PATH}:/root/keys/keyfile.json:ro
     depends_on:
       db:
         condition: service_healthy
